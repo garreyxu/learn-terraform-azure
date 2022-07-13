@@ -4,10 +4,26 @@
 # https://aka.ms/yaml
 
 trigger:
-- main
+  branches:
+    include:
+      - main
+  paths:
+    include:
+    - azure-pipelines.yml 
+
+pr:
+  branches:
+    include:
+    - main
+  paths:
+    include:
+    - azure-pipelines.yml
 
 pool:
   vmImage: ubuntu-latest
+
+variables:
+  location: westus2
 
 steps:
 - script: echo Hello, world!
